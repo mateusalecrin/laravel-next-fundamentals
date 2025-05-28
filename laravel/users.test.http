@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:89
+
+###
+# Listar todos os usuários
+# @name getUsers
+GET {{baseUrl}}/api/users
+Accept: application/json
+
+###
+# Criar um novo usuário
+# @name createUser
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Mateus Alecrin 2",
+  "email": "mateus.alecrin2@hotmail.com",
+  "password": "123456",
+  "avatar": null,
+  "is_active": true,
+  "is_verified": false
+}
