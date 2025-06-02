@@ -16,8 +16,32 @@ Accept: application/json
 {
   "name": "Mateus Alecrin 2",
   "email": "mateus.alecrin2@hotmail.com",
-  "password": "123456",
-  "avatar": null,
-  "is_active": true,
-  "is_verified": false
+  "password": "123456"
 }
+
+###
+# Buscar um usuário por ID
+# @name getUser
+GET {{baseUrl}}/api/users/3
+Accept: application/json
+
+###
+# Atualizar usuário por ID
+# @name updateUser
+PUT {{baseUrl}}/api/users/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Sancho",
+  "password": "paraiba123"
+}
+
+###
+# Deletar um usuário por ID
+# @name deleteUser
+DELETE {{baseUrl}}/api/users/2
+Accept: application/json
+
+
+

@@ -2,42 +2,41 @@
 
 namespace App\Repositories;
 
-use App\DTO\Users\CreateUserDTO;
-use App\DTO\Users\EditUserDTO;
-use App\Models\User;
+use App\DTO\Roles\CreateRoleDTO;
+use App\Models\Role;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
+use App\DTO\Roles\EditUserDTO;
 
 class UserRepository
 {
-    public function __construct(protected User $user)
+    public function __construct(protected Role $role)
     {
     }
 
     public function getPaginate(int $totalPerPage = 15, int $page = 1, string $filter = ''): LengthAwarePaginator
     {
-        return $this->user->where(function($query) use ($filter) {
+        return $this->role->where(function($query) use ($filter) {
             if ($filter !== '') {
                 $query->where('name', 'LIKE', "%{$filter}%");
             }
         })->paginate($totalPerPage, ['*'], 'page', $page);
     }
 
-    public function createNew(CreateUserDTO $dto): User
+    public function createNew(CreateUserDTO $dto): Role
     {
         $data = (array) $dto;
         $data['password'] = bcrypt($data['password']);
-        return $this->user->create($data);
+        return $this->role->create($data);
     }
 
-    public function findById(string $id): ?User
+    public function findById(string $id): ?Role
     {
-        return $this->user->find($id);
+        return $this->role->find($id);
     }
 
     public function update(EditUserDTO $dto): bool
     {
-        if(!$user = $this->findById($dto->id)) {
+        if(!$role = $this->findById($dto->id)) {
             return false;
         }
 
@@ -48,15 +47,15 @@ class UserRepository
             $data['password'] = bcrypt($dto->password);
         }
 
-        return $user->update($data);
+        return $role->update($data);
     }
 
     public function delete(string $id): bool
     {
-        if(!$user = $this->findById($id)) {
+        if(!$role = $this->findById($id)) {
             return false;
         }
 
-        return $user->delete();
+        return $role->delete();
     }
 }
