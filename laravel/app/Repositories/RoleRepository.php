@@ -5,9 +5,9 @@ namespace App\Repositories;
 use App\DTO\Roles\CreateRoleDTO;
 use App\Models\Role;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use App\DTO\Roles\EditUserDTO;
+use App\DTO\Roles\EditRoleDTO;
 
-class UserRepository
+class RoleRepository
 {
     public function __construct(protected Role $role)
     {
@@ -22,11 +22,9 @@ class UserRepository
         })->paginate($totalPerPage, ['*'], 'page', $page);
     }
 
-    public function createNew(CreateUserDTO $dto): Role
+    public function createNew(CreateRoleDTO $dto): Role
     {
-        $data = (array) $dto;
-        $data['password'] = bcrypt($data['password']);
-        return $this->role->create($data);
+        return $this->role->create((array) $dto);
     }
 
     public function findById(string $id): ?Role
@@ -34,20 +32,13 @@ class UserRepository
         return $this->role->find($id);
     }
 
-    public function update(EditUserDTO $dto): bool
+    public function update(EditRoleDTO $dto): bool
     {
         if(!$role = $this->findById($dto->id)) {
             return false;
         }
 
-        $data = (array) $dto;
-        unset($data['password']);
-
-        if($dto->password !== null) {
-            $data['password'] = bcrypt($dto->password);
-        }
-
-        return $role->update($data);
+        return $role->update((array) $dto);
     }
 
     public function delete(string $id): bool

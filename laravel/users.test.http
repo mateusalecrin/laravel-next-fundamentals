@@ -28,7 +28,7 @@ Accept: application/json
 ###
 # Atualizar usuário por ID
 # @name updateUser
-PUT {{baseUrl}}/api/users/2
+PUT {{baseUrl}}/api/users/3
 Content-Type: application/json
 Accept: application/json
 
@@ -40,7 +40,7 @@ Accept: application/json
 ###
 # Deletar um usuário por ID
 # @name deleteUser
-DELETE {{baseUrl}}/api/users/2
+DELETE {{baseUrl}}/api/users/3
 Accept: application/json
 
 

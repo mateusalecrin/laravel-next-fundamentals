@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:89
+
+### Listar todas as roles
+### @name listRoles
+GET {{baseUrl}}/api/roles
+Accept: application/json
+
+
+### Criar uma nova role
+### @name createRole
+POST {{baseUrl}}/api/roles
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "manager",
+  "label": "Gerente"
+}
+
+### Buscar uma role por ID
+### @name getRoleById
+GET {{baseUrl}}/api/roles/5
+Accept: application/json
+
+### Atualizar uma role por ID
+### @name updateRoleById
+PUT {{baseUrl}}/api/roles/5
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "manager",
+  "label": "Gerente de Marketing"
+}
+
+### Deletar uma role por ID
+### @name deleteRoleById
+DELETE {{baseUrl}}/api/roles/5
+Accept: application/json
+
+
+
