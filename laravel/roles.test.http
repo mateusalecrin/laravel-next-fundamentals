@@ -4,13 +4,14 @@
 ### @name listRoles
 GET {{baseUrl}}/api/roles
 Accept: application/json
-
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
 
 ### Criar uma nova role
 ### @name createRole
 POST {{baseUrl}}/api/roles
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
 
 {
   "name": "manager",
@@ -39,4 +40,20 @@ DELETE {{baseUrl}}/api/roles/5
 Accept: application/json
 
 
+### Adicionar role a um usuário
+### @name addUserRole
+PUT {{baseUrl}}/api/users/1/roles
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
+
+{
+    "roles": [ "3" ]
+}
+
+### Obter todas as roles de um usuário
+### @name getAllRolesOfUser
+GET {{baseUrl}}/api/users/1/roles
+Accept: application/json
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
 
