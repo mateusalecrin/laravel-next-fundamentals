@@ -5,6 +5,7 @@
 # @name getUsers
 GET {{baseUrl}}/api/users
 Accept: application/json
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
 
 ###
 # Criar um novo usuário
@@ -22,19 +23,19 @@ Accept: application/json
 ###
 # Buscar um usuário por ID
 # @name getUser
-GET {{baseUrl}}/api/users/3
+GET {{baseUrl}}/api/users/1
 Accept: application/json
 
 ###
 # Atualizar usuário por ID
 # @name updateUser
-PUT {{baseUrl}}/api/users/3
+PUT {{baseUrl}}/api/users/1
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Sancho",
-  "password": "paraiba123"
+  "name": "Mateus",
+  "password": "784892"
 }
 
 ###

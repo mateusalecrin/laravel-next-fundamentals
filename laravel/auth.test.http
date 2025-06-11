@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:89
+
+### Fazer login (gerar token Sanctum)
+### @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "mateus.alecrin@hotmail.com",
+  "password": "784892",
+  "device_name": "rest client"
+}
+
+### Obter o usuário autenticado
+### @name getAuthenticatedUser
+GET {{baseUrl}}/api/auth/profile
+Accept: application/json
+Authorization: Bearer 6|ocZ8aIjIqxydZ7YaQwsYegUPu6LG7PQ0xmSO44pB45c7f5c2
+
+### Logout (deletar token sanctum)
+### @name logout
+POST {{baseUrl}}/api/auth/logout
+Accept: application/json
+Authorization: Bearer 5|vfFYqdAg7tAvaeozVT4dFDTlQTCzJXwAiMxOeqbzec5fead1
